@@ -1,0 +1,23 @@
+body{
+  font-family: Arial, sans-serif;
+}
+
+.{
+
+}
+
+.list-box{
+  padding: 0;
+  margin: 50px auto;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.item{
+  display: inline-block;
+  padding: 5px;
+  margin: 5px 8px;
+  background: rgb(80,255,90);
+  color: #fff;
+  border-radius: 5px;
+}
