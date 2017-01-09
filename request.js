@@ -19,10 +19,10 @@ var helper = (function(){
   }
 
 
-  function createItem(value){
+  function createItem(value, className){
     var li = document.createElement("li");
     var text = document.createTextNode(value);
-    li.setAttribute('class', 'item');
+    li.setAttribute('class', className);
     li.append(text);
 
     return li;
@@ -45,20 +45,20 @@ var helper = (function(){
 
     for(var id in data){
       var string = data[id]["name"] + " " + data[id]["age"]
-      ul.append(helper.createItem(string));
+      ul.append(helper.createItem(string, "item default"));
     }
   });
 
   btn.addEventListener("click", function(){
     if(input.value){
-      ul.append(helper.createItem(input.value));
+      ul.append(helper.createItem(input.value, "item"));
       input.value = "";
     }
   });
 
   input.addEventListener("keydown", function(event){
     if(event.which === 13 && input.value){
-      ul.append(helper.createItem(input.value));
+      ul.append(helper.createItem(input.value, "item"));
       input.value = "";
     }
   });
