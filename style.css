@@ -9,7 +9,12 @@ body{
 .form{
   padding: 5px;
   text-align: center;
-  width: 500px;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.form input[type="text"]{
+  width: 200px;
 }
 
 .form h1{
