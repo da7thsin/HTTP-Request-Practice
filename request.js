@@ -16,10 +16,25 @@ function getURL(url, callback){
   req.send();
 }
 
-getURL("data.json", function(data){
-  var data = JSON.parse(data);
+function createItem(value){
+  var li = document.createElement("li");
+  var text = document.createTextNode(value);
+  li.setAttribute('class', 'item');
+  li.append(text);
 
-  for(var items in data){
-    console.log(data[items]);
-  }
-})
+  return li;
+}
+
+
+var app = (function(){
+  var btn = document.querySelector("button");
+  var input = document.querySelector("input[type=text]");
+  var ul = document.querySelector(".list-box");
+
+  btn.addEventListener("click", function(){
+    if(input.value){
+      ul.append(createItem(input.value));
+      input.value = "";
+    }
+  });
+})();

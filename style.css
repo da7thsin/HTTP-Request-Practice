@@ -2,13 +2,18 @@ body{
   font-family: Arial, sans-serif;
 }
 
-.{
+.form, .list-box{
+  margin: 30px auto;
+}
 
+.form{
+  padding: 5px;
+  text-align: center;
+  width: 500px;
 }
 
 .list-box{
   padding: 0;
-  margin: 50px auto;
   max-width: 600px;
   min-width: 300px;
 }
