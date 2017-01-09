@@ -1,4 +1,5 @@
 var helper = (function(){
+
   function getURL(url, callback){
     var req = new XMLHttpRequest();
 
@@ -17,6 +18,7 @@ var helper = (function(){
     req.send();
   }
 
+
   function createItem(value){
     var li = document.createElement("li");
     var text = document.createTextNode(value);
@@ -26,14 +28,9 @@ var helper = (function(){
     return li;
   }
 
-
-  function showDataValue(){
-
-  }
-
   return {
     createItem: createItem,
-    showDataValue: showDataValue
+    getURL: getURL
   }
 })();
 
@@ -42,6 +39,15 @@ var helper = (function(){
   var btn = document.querySelector("button");
   var input = document.querySelector("input[type=text]");
   var ul = document.querySelector(".list-box");
+
+  helper.getURL("data.json", function(data){
+    var data = JSON.parse(data);
+
+    for(var id in data){
+      var string = data[id]["name"] + " " + data[id]["age"]
+      ul.append(helper.createItem(string));
+    }
+  });
 
   btn.addEventListener("click", function(){
     if(input.value){
