@@ -1,9 +1,21 @@
-var req = new XMLHttpRequest();
-req.open("GET", "data.json", false);
-req.overrideMimeType("application/json");
-req.send();
-var items = JSON.parse(req.responseText);
+function getURL(url, callback){
+  var req = new XMLHttpRequest();
 
-for(var item in items){
-  console.log(items[item]);
+  function loadAction(){
+    if(req.status == 200){
+      callback(req.responseText);
+    }
+  }
+
+  if(/json/gi.test(url)){
+    req.overrideMimeType("application/json");
+  }
+
+  req.open("GET", url);
+  req.addEventListener("load", loadAction);
+  req.send();
 }
+
+getURL("data.json", function(data){
+  console.log(data);
+})
