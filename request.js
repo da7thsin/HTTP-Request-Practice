@@ -9,7 +9,7 @@ var helper = (function(){
       }
     }
 
-    if(/json/gi.test(url)){
+    if(/json/i.test(url)){
       req.overrideMimeType("application/json");
     }
 
