@@ -1,7 +1,9 @@
 var req = new XMLHttpRequest();
-req.open("GET", "data.json");
-req.addEventListener("load", function(){
-  console.log("Done", req.status);
-  console.log(JSON.parse(req.responseText));
-});
+req.open("GET", "data.json", false);
+req.overrideMimeType("application/json");
 req.send();
+var items = JSON.parse(req.responseText);
+
+for(var item in items){
+  console.log(items[item]);
+}
