@@ -17,5 +17,9 @@ function getURL(url, callback){
 }
 
 getURL("data.json", function(data){
-  console.log(data);
+  var data = JSON.parse(data);
+
+  for(var items in data){
+    console.log(data[items]);
+  }
 })
