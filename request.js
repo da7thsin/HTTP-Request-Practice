@@ -43,10 +43,10 @@ var helper = (function(){
   helper.getURL("data.json", function(data){
     var data = JSON.parse(data);
 
-    for(var id in data){
-      var string = data[id]["name"] + " " + data[id]["age"]
+    data.forEach(function(item){
+      var string = item["name"] + " " + item["age"]
       ul.append(helper.createItem(string, "item default"));
-    }
+    })
   });
 
   btn.addEventListener("click", function(){
